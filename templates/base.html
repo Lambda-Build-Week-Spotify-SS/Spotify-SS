@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title> Spotify Song Suggester - {{title}} </title>
+    </head>
+
+    <body>
+        <form method ='POST' action="/">
+           
+           
+    <p>
+            <label>
+                Input the name of the song
+            </label>
+            <br>
+            <sub>
+                
+                
+            </sub>
+            <input type="text" name="name"
+                   >
+          </p>
+     
+           
+    <p>
+        
+          </p>
+
+          <p>
+            <label>
+                Input the name of the artist name
+            </label>
+            <br>
+            <sub>
+               
+            </sub>
+            <input type="text" name="artist"
+                   >
+          </p>
+     
+           
+    <p>
+             <input type="submit" value="Submit">
+          </p>
+     
+     
+        </form>
+        {% for song in song_list %}
+        <p> {{ song }} </p>
+        {% endfor %}
+    </body>
+    </html>
