@@ -35,8 +35,11 @@ def find_song(name, artist):
   search_song = df['vector'].loc[(df['name']== name) & (df['artists'] == artist)]
   search_song = np.array(search_song.explode()).reshape(1,-1)
   song_list = np.array([x for x in df['vector']])
-  closest_index = distance.cdist(search_song,song_list,'cosine')
-  closest_index = np.argsort(closest_index)
+  try:
+    closest_index = distance.cdist(search_song,song_list,'cosine')
+    closest_index = np.argsort(closest_index)
+  except ValueError:
+    raise ValueError('Song or Artist not found in database. Please try again.')
   
   songs = []
 
